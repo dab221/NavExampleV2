@@ -24,6 +24,9 @@ class ClienteViewModel(private val repository: AppRepository) : ViewModel() {
     var clienteEncontrado by mutableStateOf<Cliente?>(null)
         private set
 
+    var mensaje by mutableStateOf<String?>(null)
+        private set
+
     fun agregarCliente(nombre: String, apellido: String, edad: Int) {
         viewModelScope.launch {
             repository.insertar(Cliente(nombre = nombre, apellido = apellido, edad = edad))
@@ -51,7 +54,7 @@ class ClienteViewModel(private val repository: AppRepository) : ViewModel() {
     }
 }
 
-class ClienteViewModelFactory(provate val repository: AppRepository) : ViewModelProvider.Factory {
+class ClienteViewModelFactory(private val repository: AppRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ClienteViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")

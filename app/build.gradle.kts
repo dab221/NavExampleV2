@@ -60,4 +60,6 @@ dependencies {
     ksp(libs.room.compiler)
     //ViewModel:
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0")
+    //Material3
+    implementation("androidx.compose.material:material-icons-core")
 }
