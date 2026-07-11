@@ -11,4 +11,5 @@ class AppRepository(private val dao: ClienteDao) {
     suspend fun insertar(cliente: Cliente) = dao.insertar(cliente)
     suspend fun actualizar(cliente: Cliente) = dao.actualizar(cliente)
     suspend fun eliminar(cliente: Cliente) = dao.eliminar(cliente)
+    suspend fun obtenerPorId(id: Int) = dao.obtenerPorId(id)
 }

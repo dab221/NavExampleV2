@@ -20,11 +20,11 @@ interface ClienteDao {
     suspend fun eliminar(cliente: Cliente)
 
     @Query("SELECT * FROM clientes ORDER BY apellido ASC")
-    suspend fun obtenerTodo(): Flow<List<Cliente>>
+    fun obtenerTodo(): Flow<List<Cliente>>
 
     @Query("SELECT * FROM clientes WHERE id = :clienteId")
     suspend fun obtenerPorId(clienteId: Int): Cliente?
 
     @Query("SELECT * FROM clientes WHERE edad >= :edadMinima")
-    suspend fun obtenerPorEdadMinima(edadMinima: Int): Flow<List<Cliente>>
+    fun obtenerPorEdadMinima(edadMinima: Int): Flow<List<Cliente>>
 }
